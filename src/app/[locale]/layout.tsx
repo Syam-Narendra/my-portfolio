@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { baseURL, effects, style } from "@/app/resources";
 import { Footer, Header } from "@/components";
 
-import { Inter, Source_Code_Pro } from "next/font/google";
+// import { Inter, Source_Code_Pro } from "next/font/google";
 
 import { NextIntlClientProvider } from "next-intl";
 import {
@@ -18,6 +18,7 @@ import {
 import { renderContent } from "@/app/resources";
 import { routing } from "@/i18n/routing";
 import { Background, Flex } from "@/once-ui/components";
+import { RouteGuard } from "@/components/RouteGuard";
 
 export async function generateMetadata({
   params: { locale },
@@ -53,11 +54,7 @@ export async function generateMetadata({
   };
 }
 
-const primary = Inter({
-  variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
-});
+
 
 type FontConfig = {
   variable: string;
@@ -72,11 +69,7 @@ const tertiary: FontConfig | undefined = undefined;
 /*
  */
 
-const code = Source_Code_Pro({
-  variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
+
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -109,10 +102,10 @@ export default async function RootLayout({
         data-surface={style.surface}
         data-transition={style.transition}
         className={classNames(
-          primary.variable,
+          // primary.variable,
           secondary ? secondary.variable : "",
           tertiary ? tertiary.variable : "",
-          code.variable
+          // code.variable
         )}
       >
         <Flex
@@ -140,7 +133,7 @@ export default async function RootLayout({
             flex={1}
           >
             <Flex justifyContent="center" fillWidth minHeight="0">
-              {children}
+              <RouteGuard>{children}</RouteGuard>
             </Flex>
           </Flex>
           <Footer />
