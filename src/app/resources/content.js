@@ -96,45 +96,54 @@ const about = {
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "iTalent Digital",
+        timeframe: "Nov 2023 - Present",
+        role: "AI/ML Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20%
-            increase in user engagement and 30% faster load times.
+            Command-Line Tool: Developed a custom CLI tool using the cac npm
+            module to automate and improve internal workflows, ensuring better
+            efficiency in regular tasks.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows,
-            enabling designers to iterate 50% faster.
+            WordPress Search API: Designed and developed an API for WordPress
+            websites to scrape data, transform it into vector embeddings, and
+            enable efficient vector-based search, providing more accurate
+            results compared to traditional keyword-based searches.
+          </>,
+          <>
+            Internal Productivity Application: Created a full-stack web
+            application similar to a copilot, integrated with OpenAI API and
+            Vercel AI SDK, to help employees access and utilise knowledge from
+            internal company data.
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/iTalent.jpeg",
+            alt: "iTalent Cover Pic",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Thought Works",
+        timeframe: "May 2019 - June 2019",
+        role: "Nodejs Intern",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple
-            platforms, improving design consistency by 40%.
+            Worked Closely with the Dev Team to design RESTful APIs, Gained
+            Hands On Experience with Node and Express Js
           </>,
           <>
-            Led a cross-functional team to launch a new product line,
-            contributing to a 15% increase in overall company revenue.
+            Conducted code reviews, identified areas for improvement to maintain
+            code quality and performance.
           </>,
         ],
         images: [],
@@ -142,7 +151,7 @@ const about = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Studies",
     institutions: [
       {
