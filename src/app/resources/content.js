@@ -56,9 +56,7 @@ const home = {
   subline: (
     <>
       I'm Syam Narendra, an
-      <InlineCode>AI/ML engineer and backend developer</InlineCode>, where I
-      create intelligent solutions and robust systems. In my spare time, I work
-      on innovative projects that push the boundaries of technology.
+      <InlineCode>AI/ML and Backend Engineer</InlineCode>, specializing in JavaScript and Python, adept at leveraging libraries like TensorFlow, PyTorch, Scikit-learn, and Pandas to build intelligent solutions.
     </>
   ),
 };
