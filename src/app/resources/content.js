@@ -6,7 +6,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Big Data and AI/ML Backend Engineer",
+  role: "AI/ML Backend Engineer",
   avatar: "/images/avatar.jpg",
   location: "Hyderabad/ Rajahmundry",
   languages: ["English", "Telugu"],
