@@ -329,7 +329,7 @@ export default function About(
                                                     <Flex
                                                         key={index}
                                                         border="neutral-medium"
-                                                        borderStyle="solid-1"
+                                                        // borderStyle="solid-1"
                                                         radius="m"
                                                         minWidth={image.width} height={image.height}>
                                                         <SmartImage

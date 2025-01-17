@@ -56,7 +56,9 @@ const home = {
   subline: (
     <>
       I'm Syam Narendra, an
-      <InlineCode>AI/ML and Backend Engineer</InlineCode>, specializing in JavaScript and Python, adept at leveraging libraries like TensorFlow, PyTorch, Scikit-learn, and Pandas to build intelligent solutions.
+      <InlineCode>AI/ML and Backend Engineer</InlineCode>, specializing in
+      JavaScript and Python, adept at leveraging libraries like TensorFlow,
+      PyTorch, Scikit-learn, and Pandas to build intelligent solutions.
     </>
   ),
 };
@@ -167,40 +169,59 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
-        // optional: leave the array empty if you don't want to display images
+        title: "Back-End Development",
+        description: <>Python, Node.js, Go, SQL, Postgresql, Redis</>,
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "https://i.ibb.co/W0qGwvF/kisspng-learning-to-program-using-python-programming-langu-tic-tac-toe-logo-5b47098b9492c9-360030891.png",
+            alt: "Python image",
+            width: 6,
+            height: 6,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "https://i.ibb.co/WDcdhg3/pngwing-com.png",
+            alt: "Node image",
+            width: 6,
+            height: 6,
+          },
+          
+          {
+            src: "https://i.ibb.co/yspQnrw/SQL.png",
+            alt: "Sql image",
+            width: 6,
+            height: 6,
           },
         ],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        title: "Front-End Development",
+        description: <>TypeScript, React js</>,
+        images:[
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+            src: "https://i.ibb.co/xfkNsdR/kisspng-react-javascript-library-redux-user-interface-tesseract-5b52265d078074-260379741532110429030.png",
+            alt: "React image",
+            width: 6,
+            height: 6,
+          }
+        ]
+      },
+      {
+        title: "Full Stack Frameworks",
+        description: <>Next.js,Remix</>,
+        images:[
+          {
+            src: "https://i.ibb.co/HtQFrny/next-js.png",
+            alt: "NextJs image",
+            width: 6,
+            height: 6,
+          }
+        ]
+      },
+      {
+        title: "Machine Learning & AI",
+        description: (
+          <>LangChain, HuggingFace, OpenCV,Vector Embeddings/Search</>
+        ),
       },
     ],
   },
@@ -301,4 +322,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { about, blog, gallery, home, newsletter, person, social, work };
