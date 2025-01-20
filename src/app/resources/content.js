@@ -170,7 +170,7 @@ const about = {
     skills: [
       {
         title: "Back-End Development",
-        description: <>Python, Node.js, Go, SQL, Postgresql, Redis</>,
+        description: <>Python, Node.js, Go, Rust, SQL, Postgresql, Redis</>,
         images: [
           {
             src: "https://i.ibb.co/W0qGwvF/kisspng-learning-to-program-using-python-programming-langu-tic-tac-toe-logo-5b47098b9492c9-360030891.png",
@@ -191,6 +191,12 @@ const about = {
             width: 6,
             height: 6,
           },
+         {
+           src:"https://i.ibb.co/LxYNTsB/20250120-180510.png",
+           alt:"Rust Image",
+           width:6,
+           height:6,
+         },
         ],
       },
       {
