@@ -184,7 +184,7 @@ const about = {
             width: 6,
             height: 6,
           },
-          
+
           {
             src: "https://i.ibb.co/yspQnrw/SQL.png",
             alt: "Sql image",
@@ -196,26 +196,30 @@ const about = {
       {
         title: "Front-End Development",
         description: <>TypeScript, React js</>,
-        images:[
+        images: [
           {
             src: "https://i.ibb.co/xfkNsdR/kisspng-react-javascript-library-redux-user-interface-tesseract-5b52265d078074-260379741532110429030.png",
             alt: "React image",
             width: 6,
             height: 6,
-          }
-        ]
+          },
+        ],
       },
       {
         title: "Full Stack Frameworks",
         description: <>Next.js,Remix</>,
-        images:[
+        images: [
           {
             src: "https://i.ibb.co/HtQFrny/next-js.png",
             alt: "NextJs image",
             width: 6,
             height: 6,
-          }
-        ]
+          },
+        ],
+      },
+      {
+        title: "Big Data",
+        description: <>Apache Spark, Hadoop, Kafka,</>,
       },
       {
         title: "Machine Learning & AI",
