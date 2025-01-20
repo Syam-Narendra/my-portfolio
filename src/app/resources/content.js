@@ -215,6 +215,12 @@ const about = {
             width: 6,
             height: 6,
           },
+          {
+            src: "https://i.ibb.co/3rY8X1Z/20250120-122900.png",
+            alt: "Remix image",
+            width:6,
+            height:6
+          },
         ],
       },
       {
