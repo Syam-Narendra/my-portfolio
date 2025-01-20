@@ -204,6 +204,12 @@ const about = {
         description: <>TypeScript, React js</>,
         images: [
           {
+            src:"https://i.ibb.co/Q6hNbhQ/20250120-191522.png",
+            alt:"Typescript",
+            width:6,
+            height:6
+          },
+          {
             src: "https://i.ibb.co/xfkNsdR/kisspng-react-javascript-library-redux-user-interface-tesseract-5b52265d078074-260379741532110429030.png",
             alt: "React image",
             width: 6,
@@ -232,12 +238,46 @@ const about = {
       {
         title: "Big Data",
         description: <>Apache Spark, Hadoop, Kafka,</>,
+        images:[
+          {
+            src:"https://i.ibb.co/P9WwYJP/20250120-191822.png",
+            alt:"Spark",
+            width:6,
+            height:6
+          },
+          {
+            src:"https://i.ibb.co/DfhmB5C/20250120-192302.png",
+            alt:"Hadoop",
+            width:6,
+            height:6,
+          },
+          {
+            src:"https://i.ibb.co/RpsQhgX/20250120-192119.png",
+            alt:"Kafka",
+            width: 6,
+            height:6,
+          },
+        ]
       },
       {
         title: "Machine Learning & AI",
         description: (
           <>LangChain, HuggingFace, OpenCV,Vector Embeddings/Search</>
         ),
+          images:[
+            {
+              src:"https://i.ibb.co/Rg6snym/20250120-192606.png",
+              alt:"Langchain",
+              width:6,
+              height:6,
+            },
+            {
+              src:"https://i.ibb.co/5rzsVbW/20250120-192926.png",
+              alt:"Huggingface",
+              width:6,
+              height:6,
+            }
+          ]
       },
     ],
   },
