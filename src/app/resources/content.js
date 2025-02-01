@@ -13,7 +13,7 @@ const person = {
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Get in Touch</>,
   description: (
     <>
