@@ -173,7 +173,7 @@ const about = {
         description: <>Python, Node.js, Go, SQL, Postgresql, Redis</>,
         images: [
           {
-            src: "https://i.ibb.co/W0qGwvF/kisspng-learning-to-program-using-python-programming-langu-tic-tac-toe-logo-5b47098b9492c9-360030891.png",
+            src: "https://i.ibb.co/KjpWMK4t/20250204-162931.png",
             alt: "Python image",
             width: 6,
             height: 6,
