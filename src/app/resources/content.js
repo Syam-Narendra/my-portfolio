@@ -24,8 +24,6 @@ const newsletter = {
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
@@ -37,15 +35,19 @@ const social = [
     link: "https://linkedin.com/in/syamnarendra",
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
-  },
-  {
     name: "Email",
     icon: "email",
     link: "mailto:syam35@protonmail.com",
   },
+  {
+    name:"Telegram",
+    icon:"telegram",
+    link:"https://t.me/MrAdbhutham",
+  },{
+    name:"X",
+    icon:"x",
+    link:"https://x.com/MrAdbhutam",
+  }
 ];
 
 const home = {
