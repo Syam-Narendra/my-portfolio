@@ -2,54 +2,23 @@ import { useState, useEffect, Suspense } from "react";
 import type { MetaFunction } from "react-router";
 import { useLoaderData, Await } from "react-router";
 
-import { about, education, experience, footer, github, meta as siteMeta, profile, quote, socialLinks, getVisitorCount } from "~/data/portfolio";
+import { about, education, experience, footer, meta as siteMeta, profile, quote, socialLinks, getVisitorCount } from "~/data/portfolio";
+import { readGitHubCache } from "~/github-scheduler.server";
 import { Hatch } from "~/components/Hatch";
 import { Navbar } from "~/components/Navbar";
 import { ProfileHeader } from "~/components/ProfileHeader";
 import { SectionPanel } from "~/components/SectionPanel";
 import { SocialIcon } from "~/components/SocialIcon";
-import { GitHubGrid, type GitHubStats, type ContribDay } from "~/components/GitHubGrid";
+import { GitHubGrid } from "~/components/GitHubGrid";
 
 export const meta: MetaFunction = () => [
   { title: siteMeta.title },
   { name: "description", content: siteMeta.description },
 ];
 
-async function fetchGitHub(): Promise<GitHubStats | null> {
-  try {
-    const res = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${github.username}?y=last`
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-
-    const contributions: ContribDay[] = (data.contributions || []).map(
-      (c: { date: string; count: number; level: number }) => ({
-        date: c.date,
-        count: c.count,
-        level: c.level,
-      })
-    );
-
-    const weeks: ContribDay[][] = [];
-    for (let i = 0; i < contributions.length; i += 7) {
-      weeks.push(contributions.slice(i, i + 7));
-    }
-
-    return {
-      totalContributions:
-        data.total?.lastYear ||
-        contributions.reduce((s: number, c: ContribDay) => s + c.count, 0),
-      weeks: weeks.slice(-52),
-    };
-  } catch {
-    return null;
-  }
-}
-
 export function loader() {
   return {
-    github: fetchGitHub(),
+    github: readGitHubCache(),
     visitorCount: getVisitorCount(),
   };
 }
