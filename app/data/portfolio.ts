@@ -30,7 +30,7 @@ export const socialLinks = [
     href: "https://www.linkedin.com/in/syamnarendra/",
     icon: "linkedin",
   },
-  { label: "Mail", href: "mailto:syam35@protonmail.com", icon: "mail" }
+  { label: "Mail", href: "mailto:syam35@protonmail.com", icon: "mail" },
 ];
 
 // ── GitHub ───────────────────────────────────────────────────────────
@@ -98,7 +98,7 @@ export const education = [
     degree: "Diploma in Computer Science",
     sub: "Computer Science",
     period: ["July 2017", "March 2020"] as [string, string],
-  }
+  },
 ];
 
 // ── Books ────────────────────────────────────────────────────────────
@@ -167,12 +167,13 @@ export const booksRead: Book[] = [
     language: "telugu",
     rating: 5,
     review: "తెలుగు సాహిత్యంలో అత్యుత్తమ నవల. జ్ఞానపీఠ పురస్కార గ్రంథం.",
-  }
+  },
 ];
 
 export const booksMeta = {
   title: "Books – Syam Narendra",
-  description: "A collection of books that made me pause, think, and see things differently.",
+  description:
+    "A collection of books that made me pause, think, and see things differently.",
   heading: "Books",
   subheading:
     "A collection of books that made me pause, think, and see things differently.\nSome for growth, some for curiosity, and some that just stayed with me.",
@@ -195,7 +196,8 @@ export const projects: Project[] = [
       "A high-performance API gateway built with YARP that routes LLM requests across multiple providers with automatic failover, rate limiting, and usage tracking.",
     tags: ["C#", "ASP.NET Core", "YARP", "Redis"],
     githubUrl: "https://github.com/syam-narendra",
-    imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop",
   },
   {
     title: "MCP Server Framework",
@@ -203,7 +205,8 @@ export const projects: Project[] = [
       "A FastMCP-based server framework for building Model Context Protocol servers with built-in tool management, resource handling, and prompt templates.",
     tags: ["Python", "FastMCP", "Docker", "OpenAI"],
     githubUrl: "https://github.com/syam-narendra",
-    imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=340&fit=crop",
   },
   {
     title: "Invoice Management System",
@@ -212,7 +215,8 @@ export const projects: Project[] = [
     tags: ["React", "Node.js", "PostgreSQL", "PDF"],
     url: "https://example.com",
     githubUrl: "https://github.com/syam-narendra",
-    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=340&fit=crop",
   },
   {
     title: "Real-time Chat Engine",
@@ -220,7 +224,8 @@ export const projects: Project[] = [
       "WebSocket-based chat system supporting group conversations, file sharing, read receipts, and end-to-end encryption.",
     tags: ["TypeScript", "WebSocket", "Redis", "MongoDB"],
     githubUrl: "https://github.com/syam-narendra",
-    imageUrl: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=600&h=340&fit=crop",
   },
   {
     title: "E-Commerce Platform",
@@ -228,7 +233,8 @@ export const projects: Project[] = [
       "Scalable e-commerce backend with inventory management, payment integration, order tracking, and multi-vendor support.",
     tags: ["Python", "FastAPI", "Stripe", "Docker"],
     githubUrl: "https://github.com/syam-narendra",
-    imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop",
   },
   {
     title: "DevOps Dashboard",
@@ -236,7 +242,8 @@ export const projects: Project[] = [
       "Monitoring dashboard that aggregates metrics from multiple services, displays real-time health checks, and sends alerts via Slack.",
     tags: ["React", "Grafana", "Prometheus", "Go"],
     url: "https://example.com",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop",
   },
 ];
 
@@ -244,7 +251,8 @@ export const projectsMeta = {
   title: "Projects – Syam Narendra",
   description: "A showcase of projects I've built and contributed to.",
   heading: "Projects",
-  subheading: "Things I've built, broken, and rebuilt — mostly for fun, sometimes for real.",
+  subheading:
+    "Things I've built, broken, and rebuilt — mostly for fun, sometimes for real.",
 };
 
 // ── Blogs ────────────────────────────────────────────────────────────
@@ -267,7 +275,8 @@ export const blogs: BlogPost[] = [
     readTime: "8 min read",
     tags: ["C#", "YARP", ".NET"],
     slug: "building-reverse-proxy-yarp",
-    coverUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=300&fit=crop",
+    coverUrl:
+      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=300&fit=crop",
   },
   {
     title: "Why I Switched from REST to MCP for AI Tools",
@@ -277,7 +286,8 @@ export const blogs: BlogPost[] = [
     readTime: "6 min read",
     tags: ["AI", "MCP", "Python"],
     slug: "rest-to-mcp-ai-tools",
-    coverUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop",
+    coverUrl:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop",
   },
   {
     title: "Docker Compose for Local Development: A Practical Guide",
@@ -287,7 +297,8 @@ export const blogs: BlogPost[] = [
     readTime: "10 min read",
     tags: ["Docker", "DevOps", "DX"],
     slug: "docker-compose-local-dev",
-    coverUrl: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=600&h=300&fit=crop",
+    coverUrl:
+      "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=600&h=300&fit=crop",
   },
   {
     title: "Lessons from Building My First Production API",
@@ -297,7 +308,8 @@ export const blogs: BlogPost[] = [
     readTime: "7 min read",
     tags: ["Backend", "API", "Lessons"],
     slug: "first-production-api-lessons",
-    coverUrl: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=300&fit=crop",
+    coverUrl:
+      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=300&fit=crop",
   },
   {
     title: "Understanding Event-Driven Architecture",
@@ -307,28 +319,31 @@ export const blogs: BlogPost[] = [
     readTime: "12 min read",
     tags: ["Architecture", "Events", "System Design"],
     slug: "event-driven-architecture",
-    coverUrl: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=300&fit=crop",
+    coverUrl:
+      "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=300&fit=crop",
   },
 ];
 
 export const blogsMeta = {
   title: "Blog – Syam Narendra",
-  description: "Thoughts on backend engineering, AI, and building things that work.",
+  description:
+    "Thoughts on backend engineering, AI, and building things that work.",
   heading: "Blog",
-  subheading: "Thoughts, learnings, and occasional rants about building software.",
+  subheading:
+    "Thoughts, learnings, and occasional rants about building software.",
 };
 
 // ── About ────────────────────────────────────────────────────────────
 export const about = [
-  "I'm a builder who's still figuring things out, but doing it by creating along the way. I enjoy working at the intersection of AI and real world impact, whether it's building systems, experimenting with LLMs, or turning ideas into something real.",
-  "At my core, I'm curious, not just about technology, but about how it shapes the way people think, act, and grow. That curiosity pushes me beyond just coding, into exploring meaning and purpose.",
-  "I don't see growth as just skills or achievements, but as becoming more aware, disciplined, and aligned with what I'm doing, and that's something I'm continuously working on.",
+  "I’m a backend-focused engineer who enjoys building systems from the ground up, especially where performance, scalability, and real-world use intersect. Lately, I’ve been diving deep into Rust, exploring how low level thinking can shape high impact products.",
+  "I like going beyond just writing code whether it’s designing architectures, experimenting with recommendation systems, or building full-stack products that people actually use. I learn best by building, breaking, and rebuilding things better.",
+  "For me, growth is about becoming sharper in how I think and build more intentional, more disciplined, and more aligned with creating systems that truly matter.",
 ];
 
 // ── Quote ────────────────────────────────────────────────────────────
 export const quote = {
-  text: "I was not born with a whole lot of natural talent... but I work hard and I never give up.",
-  author: "Rock Lee",
+  text: "I was not born with a whole lot of natural talent, but I work hard and I never give up! That is my gift; that is my ninja way!",
+  author: "Rock Lee, Naruto",
 };
 
 // ── Footer ───────────────────────────────────────────────────────────
