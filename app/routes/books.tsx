@@ -72,91 +72,128 @@ function BookCard({ book, dark }: { book: Book; dark: boolean }) {
 
   return (
     <div
+      className="book-card"
       style={{
-        display: "flex",
-        gap: 16,
-        padding: 16,
         borderRadius: 12,
         border: `1px solid ${border}`,
         background: cardBg,
-        transition: "transform 0.2s, box-shadow 0.2s",
+        overflow: "hidden",
+        transition: "transform 0.25s ease, box-shadow 0.25s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-2px)";
+        e.currentTarget.style.transform = "translateY(-4px)";
         e.currentTarget.style.boxShadow = dark
-          ? "0 8px 24px rgba(0,0,0,0.4)"
-          : "0 8px 24px rgba(0,0,0,0.08)";
+          ? "0 12px 32px rgba(0,0,0,0.5)"
+          : "0 12px 32px rgba(0,0,0,0.1)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
         e.currentTarget.style.boxShadow = "none";
       }}
     >
-      {/* Cover */}
+      {/* Cover — tall and prominent */}
       <div
         style={{
-          width: 80,
-          minWidth: 80,
-          height: 120,
-          borderRadius: 8,
+          aspectRatio: "3 / 4",
           overflow: "hidden",
-          border: `1px solid ${border}`,
-          flexShrink: 0,
+          borderBottom: `1px solid ${border}`,
+          background: dark ? "#111" : "#f0f0f0",
         }}
       >
         <img
           src={book.coverUrl}
           alt={book.title}
-          width={80}
-          height={120}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            objectPosition: "top",
+            display: "block",
+            transition: "transform 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
           }}
         />
       </div>
 
-      {/* Info */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 6, flex: 1, minWidth: 0 }}>
-        <h3 style={{ fontFamily: textFont, fontSize: isTelugu ? 17 : 15, fontWeight: 600, color: fg, lineHeight: 1.3, margin: 0 }}>
+      {/* Info below cover */}
+      <div style={{ padding: "12px 14px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
+        <h3
+          style={{
+            fontFamily: textFont,
+            fontSize: isTelugu ? 24 : 14,
+            fontWeight: 400,
+            color: fg,
+            lineHeight: 1.3,
+            margin: 0,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+          }}
+        >
           {book.title}
         </h3>
-        <span style={{ fontFamily: textFont, fontSize: 13, color: muted }}>
-          {isTelugu ? "" : "by "}{book.author}
-        </span>
 
         <span
           style={{
-            fontFamily: isTelugu ? textFont : mono,
-            fontSize: 11,
-            padding: "2px 8px",
-            borderRadius: 6,
-            border: `1px solid ${border}`,
-            background: tagBg,
+            fontFamily: textFont,
+            fontSize: isTelugu ? 18 : 12,
             color: muted,
-            alignSelf: "flex-start",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
           }}
         >
-          {book.genre}
+          {isTelugu ? "" : "by "}{book.author}
         </span>
 
-        {book.rating !== undefined && (
-          <div style={{ marginTop: 2 }}>
-            <StarRating rating={book.rating} dark={dark} />
-          </div>
-        )}
+       <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+    alignItems: "flex-start",
+  }}
+>
+  <span
+    style={{
+      fontFamily: isTelugu ? textFont : mono,
+      fontSize: 15,
+      padding: "1px 7px",
+      borderRadius: 5,
+      border: `1px solid ${border}`,
+      background: tagBg,
+      color: muted,
+    }}
+  >
+    {book.genre}
+  </span>
 
+  {book.rating !== undefined && (
+    <StarRating rating={book.rating} dark={dark} />
+  )}
+</div>
         {book.review && (
           <p
             style={{
               fontFamily: textFont,
-              fontSize: 12,
+              fontSize: isTelugu ? 13 : 11,
               color: muted,
-              lineHeight: 1.6,
+              lineHeight: 1.5,
               margin: 0,
               marginTop: 2,
               fontStyle: isTelugu ? "normal" : "italic",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
             }}
           >
             "{book.review}"
@@ -257,7 +294,7 @@ export default function Books() {
                 {booksCurrentlyReading.length} book{booksCurrentlyReading.length !== 1 ? "s" : ""} in progress
               </span>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div className="books-grid">
               {booksCurrentlyReading.map((book) => (
                 <BookCard key={book.title} book={book} dark={dark} />
               ))}
@@ -291,7 +328,7 @@ export default function Books() {
                 {booksRead.length} book{booksRead.length !== 1 ? "s" : ""} completed
               </span>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div className="books-grid">
               {booksRead.map((book) => (
                 <BookCard key={book.title} book={book} dark={dark} />
               ))}
@@ -371,8 +408,18 @@ export default function Books() {
         }
         @media (min-width: 768px) {
           .book-star {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
+          }
+        }
+        .books-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+        @media (min-width: 540px) {
+          .books-grid {
+            grid-template-columns: repeat(3, 1fr);
           }
         }
       `}</style>

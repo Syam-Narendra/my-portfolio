@@ -124,10 +124,37 @@ export const booksCurrentlyReading: Book[] = [
 
 export const booksRead: Book[] = [
   {
+    title: "మహాప్రస్థానం",
+    author: "శ్రీశ్రీ",
+    coverUrl: "/images/books/mahaprasthanam.jpg",
+    genre: "కవిత",
+    language: "telugu",
+    rating: 5,
+    review: "తెలుగు సాహిత్యంలో అత్యుత్తమ నవల. జ్ఞానపీఠ పురస్కార గ్రంథం.",
+  },
+  {
+    title: "అమృతం కురిసిన రాత్రి",
+    author: "దేవరకొండ బాలగంగాధర తిలక్",
+    coverUrl: "/images/books/amrutam_kurisina_ratri.jpg",
+    genre: "కవిత",
+    language: "telugu",
+    rating: 5,
+    review: "తెలుగు సాహిత్యంలో అత్యుత్తమ నవల. జ్ఞానపీఠ పురస్కార గ్రంథం.",
+  },
+  {
     title: "అసమర్థుని జీవయాత్ర",
     author: "త్రిపురనేని గోపీచంద్",
     coverUrl: "/images/books/asamardhuni-jivayatra.jpg",
     genre: "నవల",
+    language: "telugu",
+    rating: 5,
+    review: "తెలుగు సాహిత్యంలో అత్యుత్తమ నవల. జ్ఞానపీఠ పురస్కార గ్రంథం.",
+  },
+  {
+    title: "కాళికాంబ సప్తశతి",
+    author: "పోతులూరి వీరబ్రహ్మేంద్ర స్వామి",
+    coverUrl: "/images/books/kalikamba-saptasati.jpg",
+    genre: "పద్యాలు",
     language: "telugu",
     rating: 5,
     review: "తెలుగు సాహిత్యంలో అత్యుత్తమ నవల. జ్ఞానపీఠ పురస్కార గ్రంథం.",
