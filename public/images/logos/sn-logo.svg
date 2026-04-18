@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 366 366" fill="none">
+  <style>
+    :root {
+      --mark: #09090b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --mark: #f4f4f5;
+      }
+    }
+    .text-sn {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 200px;
+      fill: var(--mark);
+    }
+  </style>
+  
+  <rect width="366" height="366" rx="60" fill="transparent" />
+  
+  <g transform="translate(183, 250)">
+    <text class="text-sn" text-anchor="middle" letter-spacing="-15">SN</text>
+  </g>
+</svg>
