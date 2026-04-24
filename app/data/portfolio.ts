@@ -1,8 +1,8 @@
 export const profile = {
-  name: "Syam Narendra",
+  name: "should not",
   avatarUrl: "https://avatars.githubusercontent.com/u/124170193",
   tagline: "24 • Backend Systems Engineer",
-  statusChecking: "Checking activity...",
+  statusChecking: "Checking activity...sdjkv",
   statusReady: "Available for opportunities",
 };
 
@@ -25,11 +25,7 @@ export const meta = {
 export const socialLinks = [
   { label: "GitHub", href: "https://github.com/syam-narendra", icon: "github" },
   { label: "X", href: "https://x.com/MrAdbhutam", icon: "twitter" },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/syamnarendra/",
-    icon: "linkedin",
-  },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/syamnarendra/", icon: "linkedin" },
   { label: "Mail", href: "mailto:syam35@protonmail.com", icon: "mail" },
 ];
 
@@ -53,14 +49,7 @@ export const experience = [
     role: "AI Backend Engineer",
     type: "Full-time",
     period: ["Mar 2026", "Present"] as [string, string],
-    skills: [
-      "C#",
-      "ASP.NET Core",
-      "YARP",
-      "SQL Server",
-      "JavaScript",
-      "Playwright",
-    ],
+    skills: ["C#", "ASP.NET Core", "YARP", "SQL Server", "JavaScript", "Playwright"],
   },
   {
     company: "itD Tech",
@@ -166,7 +155,6 @@ export const booksRead: Book[] = [
     genre: "నవల",
     language: "telugu",
     rating: 3,
-    review: "",
   },
 ];
 
@@ -348,7 +336,7 @@ export const quote = {
 
 // ── Footer ───────────────────────────────────────────────────────────
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} Syam Narendra`,
+  copyright: `© ${new Date().getFullYear()} should not`,
   tagline: "Low-level thinking. High-level impact. Let's get Rusty.",
   emoji: "🐰",
 };
