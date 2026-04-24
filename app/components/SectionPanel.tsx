@@ -29,7 +29,7 @@ export function SectionPanel({ id, title, dark, children }: SectionPanelProps) {
           {title}
         </h2>
       </header>
-      <div style={{ padding: 16 }}>{children}</div>
+      <div style={{ padding: 16, overflow: "hidden", minWidth: 0 }}>{children}</div>
     </section>
   );
 }

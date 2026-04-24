@@ -182,7 +182,7 @@ export default function Home() {
 
           {/* ── GitHub Activity ───────────────────────────────────── */}
           <SectionPanel id="github" title="GitHub Activity" dark={dark}>
-            <div style={{ overflowX: "auto", paddingBlock: 6 }}>
+            <div style={{ overflowX: "auto", overflowY: "hidden", paddingBlock: 6, WebkitOverflowScrolling: "touch" }}>
               <Suspense fallback={<GitHubGridSkeleton dark={dark} />}>
                 <Await resolve={github}>
                   {(data) => <GitHubGrid dark={dark} data={data} />}

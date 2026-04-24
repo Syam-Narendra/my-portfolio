@@ -28,8 +28,9 @@ export async function action({ request }: Route.ActionArgs) {
     return { error: "Please enter both username and password" };
   }
 
-  if (!validateCredentials(username, password)) {
-    return { error: "Invalid credentials" };
+  const result = validateCredentials(request, username, password);
+  if (!result.success) {
+    return { error: result.error || "Invalid credentials" };
   }
 
   return redirect("/admin", {
