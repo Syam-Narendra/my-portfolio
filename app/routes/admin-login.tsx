@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import type { MetaFunction } from "react-router";
 import { redirect, useActionData, Form } from "react-router";
 import type { Route } from "./+types/admin-login";
@@ -44,305 +44,130 @@ export default function AdminLogin() {
   const actionData = useActionData<typeof action>();
   const [showPassword, setShowPassword] = useState(false);
 
-  const bg = "#09090b";
-  const fg = "#f4f4f5";
-  const border = "#27272a";
-  const muted = "#a1a1aa";
-  const cardBg = "#111113";
-  const inputBg = "#18181b";
-  const accent = "#6366f1";
-  const accentHover = "#818cf8";
-  const mono = "'JetBrains Mono','Courier New',monospace";
-
   return (
-    <div
-      style={{
-        background: bg,
-        color: fg,
-        minHeight: "100vh",
-        fontFamily: "'Inter',system-ui,sans-serif",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 16,
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 400,
-          background: cardBg,
-          border: `1px solid ${border}`,
-          borderRadius: 16,
-          padding: 32,
-          boxShadow: "0 25px 50px -12px rgba(0,0,0,.5)",
-        }}
-      >
-        {/* Lock Icon */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: 24,
-          }}
-        >
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 14,
-              background: `linear-gradient(135deg, ${accent}, #a855f7)`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: `0 0 30px ${accent}33`,
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              width={28}
-              height={28}
-              fill="none"
-              stroke="white"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-          </div>
-        </div>
+    <>
+      <style>{`
+  .dot-bg {
+    background-color: #0a0a0b;
+    background-image: radial-gradient(circle, #2a2a2e 0.8px, transparent 0.8px);
+    background-size: 22px 22px;
+  }
+  .hatched-border {
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 4px,
+      #1a1a1f 4px,
+      #1a1a1f 5px
+    );
+  }
+  .font-mono-ui {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+`}</style>
 
-        <h1
-          style={{
-            fontSize: 22,
-            fontWeight: 600,
-            textAlign: "center",
-            marginBottom: 4,
-          }}
-        >
-          Admin Access
-        </h1>
-        <p
-          style={{
-            fontSize: 13,
-            color: muted,
-            textAlign: "center",
-            marginBottom: 28,
-            fontFamily: mono,
-          }}
-        >
-          authenticate to manage portfolio
-        </p>
+      <div className="font-mono-ui dot-bg min-h-screen flex items-center justify-center p-4 sm:p-6">
+        <div className="w-full max-w-[420px]">
+          {/* Top border */}
+          <div className="hatched-border h-6 rounded-t-lg" />
 
-        {actionData?.error && (
-          <div
-            style={{
-              background: "rgba(239,68,68,.12)",
-              border: "1px solid rgba(239,68,68,.3)",
-              borderRadius: 10,
-              padding: "10px 14px",
-              fontSize: 13,
-              color: "#fca5a5",
-              marginBottom: 20,
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              width={16}
-              height={16}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="15" y1="9" x2="9" y2="15" />
-              <line x1="9" y1="9" x2="15" y2="15" />
-            </svg>
-            {actionData.error}
-          </div>
-        )}
+          <div className="bg-[#0e0e11] border-x border-[#1e1e24] px-8 py-12 sm:px-10 sm:py-14 shadow-[0_8px_32px_rgba(0,0,0,0.45),0_1.5px_4px_rgba(0,0,0,0.25)]">
+            {/* Header */}
+            <header className="mb-12">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                  Admin Access
+                </span>
+              </div>
 
-        <Form method="post">
-          <div style={{ marginBottom: 16 }}>
-            <label
-              htmlFor="admin-username"
-              style={{
-                display: "block",
-                fontSize: 12,
-                fontWeight: 500,
-                color: muted,
-                marginBottom: 6,
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Username
-            </label>
-            <input
-              id="admin-username"
-              name="username"
-              type="text"
-              autoComplete="username"
-              required
-              style={{
-                width: "100%",
-                height: 44,
-                background: inputBg,
-                border: `1px solid ${border}`,
-                borderRadius: 10,
-                padding: "0 14px",
-                fontSize: 14,
-                color: fg,
-                outline: "none",
-                fontFamily: mono,
-                transition: "border-color .2s",
-              }}
-              onFocus={(e) =>
-                (e.currentTarget.style.borderColor = accent)
-              }
-              onBlur={(e) =>
-                (e.currentTarget.style.borderColor = border)
-              }
-            />
-          </div>
+              <h1 className="text-[26px] font-bold text-zinc-100 tracking-tight mb-4">
+                Sign in
+              </h1>
 
-          <div style={{ marginBottom: 24 }}>
-            <label
-              htmlFor="admin-password"
-              style={{
-                display: "block",
-                fontSize: 12,
-                fontWeight: 500,
-                color: muted,
-                marginBottom: 6,
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Password
-            </label>
-            <div style={{ position: "relative" }}>
-              <input
-                id="admin-password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                autoComplete="current-password"
-                required
-                style={{
-                  width: "100%",
-                  height: 44,
-                  background: inputBg,
-                  border: `1px solid ${border}`,
-                  borderRadius: 10,
-                  padding: "0 44px 0 14px",
-                  fontSize: 14,
-                  color: fg,
-                  outline: "none",
-                  fontFamily: mono,
-                  transition: "border-color .2s",
-                }}
-                onFocus={(e) =>
-                  (e.currentTarget.style.borderColor = accent)
-                }
-                onBlur={(e) =>
-                  (e.currentTarget.style.borderColor = border)
-                }
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((s) => !s)}
-                style={{
-                  position: "absolute",
-                  right: 8,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  color: muted,
-                  cursor: "pointer",
-                  padding: 6,
-                  display: "flex",
-                }}
+              <p className="text-[13px] text-zinc-500">
+                Enter your credentials to continue
+              </p>
+            </header>
+
+            {/* Error */}
+            {actionData?.error && (
+              <div
+                role="alert"
+                className="flex items-center gap-3 rounded-lg px-4 py-3 text-[13px] mb-10 bg-red-500/[0.08] border border-red-500/20 text-red-300"
               >
-                {showPassword ? (
-                  <svg
-                    viewBox="0 0 24 24"
-                    width={18}
-                    height={18}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
+                <span>{actionData.error}</span>
+              </div>
+            )}
+
+            <Form method="post" className="space-y-8 mt-56">
+              {/* Email */}
+              <div className="space-y-3">
+                <label
+                  htmlFor="admin-username"
+                  className="block text-[11px] uppercase tracking-[0.12em] text-zinc-400"
+                >
+                  Email
+                </label>
+
+                <input
+                  id="admin-username"
+                  name="username"
+                  type="text"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full h-12 rounded-lg px-4 text-[13px] bg-[#141417] border border-[#27272a] text-zinc-100 placeholder:text-zinc-600 outline-none focus:border-zinc-500"
+                />
+              </div>
+
+              {/* Password */}
+              <div className="space-y-3">
+                <label
+                  htmlFor="admin-password"
+                  className="block text-[11px] uppercase tracking-[0.12em] text-zinc-400"
+                >
+                  Password
+                </label>
+
+                <div className="relative">
+                  <input
+                    id="admin-password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    required
+                    placeholder="••••••••"
+                    className="w-full h-12 rounded-lg pl-4 pr-12 text-[13px] bg-[#141417] border border-[#27272a] text-zinc-100 placeholder:text-zinc-600 outline-none focus:border-zinc-500"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((s) => !s)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-zinc-500 hover:text-zinc-300"
                   >
-                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-                    <line x1="1" y1="1" x2="23" y2="23" />
-                  </svg>
-                ) : (
-                  <svg
-                    viewBox="0 0 24 24"
-                    width={18}
-                    height={18}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                )}
+                    👁
+                  </button>
+                </div>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full h-12 mt-6 rounded-lg text-[13px] font-semibold bg-zinc-100 text-zinc-900 hover:bg-white"
+              >
+                Sign in →
               </button>
-            </div>
+            </Form>
+
+            {/* Footer */}
+            <p className="mt-12 text-center text-[11px] text-zinc-600">
+              Protected area · Authorized personnel only
+            </p>
           </div>
 
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              height: 46,
-              background: `linear-gradient(135deg, ${accent}, #a855f7)`,
-              border: "none",
-              borderRadius: 10,
-              color: "white",
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: "pointer",
-              fontFamily: "'Inter',sans-serif",
-              transition: "opacity .2s, transform .1s",
-              boxShadow: `0 4px 15px ${accent}44`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = "0.9";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = "1";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.transform = "translateY(1px)";
-            }}
-          >
-            Sign In
-          </button>
-        </Form>
-
-        <p
-          style={{
-            fontSize: 11,
-            color: "#52525b",
-            textAlign: "center",
-            marginTop: 20,
-            fontFamily: mono,
-          }}
-        >
-          credentials configured in .env file
-        </p>
+          {/* Bottom border */}
+          <div className="hatched-border h-6 rounded-b-lg" />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
