@@ -54,7 +54,7 @@ export const experience = [
     company: "itD Tech",
     companyUrl: "https://itdtech.com/",
     logoUrl: "/images/logos/itd-logo.jpg",
-    role: "Full Stack Developer",
+    role: "Backend Developer",
     type: "Full-time",
     period: ["Nov 2023", "Feb 2026"] as [string, string],
     skills: ["Python", "Docker", "ngrok", "Node.js", "Kafka", "Vercel AI SDk", "Redis", "PostgresQL", "TypeScript", "WebSockets", "Prometheus", "Locust/K6"],
