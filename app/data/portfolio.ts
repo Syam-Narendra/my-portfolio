@@ -1,5 +1,5 @@
 export const profile = {
-  name: "dsSyam Kumatsdkvsdvkksdvkjkjj d testsjksdnmv",
+  name: "should not",
   avatarUrl: "https://avatars.githubusercontent.com/u/124170193",
   tagline: "24 • Backend Systems Engineer",
   statusChecking: "Checking activity...sdjkv",
@@ -179,24 +179,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "AI Gateway Proxy",
-    description:
-      "A high-performance API gateway built with YARP that routes LLM requests across multiple providers with automatic failover, rate limiting, and usage tracking.",
-    tags: ["C#", "ASP.NET Core", "YARP", "Redis"],
-    githubUrl: "https://github.com/syam-narendra",
-    imageUrl:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop",
-  },
-  {
-    title: "MCP Server Framework",
-    description:
-      "A FastMCP-based server framework for building Model Context Protocol servers with built-in tool management, resource handling, and prompt templates.",
-    tags: ["Python", "FastMCP", "Docker", "OpenAI"],
-    githubUrl: "https://github.com/syam-narendra",
-    imageUrl:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=340&fit=crop",
-  },
-  {
     title: "Invoice Management System",
     description:
       "Full-stack invoicing platform with PDF generation, GST calculations, client management, and automated payment reminders.",
@@ -223,15 +205,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/syam-narendra",
     imageUrl:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop",
-  },
-  {
-    title: "DevOps Dashboard",
-    description:
-      "Monitoring dashboard that aggregates metrics from multiple services, displays real-time health checks, and sends alerts via Slack.",
-    tags: ["React", "Grafana", "Prometheus", "Go"],
-    url: "https://example.com",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop",
   },
 ];
 
@@ -336,7 +309,7 @@ export const quote = {
 
 // ── Footer ───────────────────────────────────────────────────────────
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} dsSyam Kumatsdkvsdvkksdvkjkjj d testsjksdnmv`,
+  copyright: `© ${new Date().getFullYear()} should not`,
   tagline: "Low-level thinking. High-level impact. Let's get Rusty.",
   emoji: "🐰",
 };
