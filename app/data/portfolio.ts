@@ -1,8 +1,8 @@
 export const profile = {
-  name: "should not",
+  name: "Syam Narendra",
   avatarUrl: "https://avatars.githubusercontent.com/u/124170193",
   tagline: "24 • Backend Systems Engineer",
-  statusChecking: "Checking activity...sdjkv",
+  statusChecking: "Checking activity...",
   statusReady: "Available for opportunities",
 };
 
@@ -20,11 +20,10 @@ export const nav = {
 export const meta = {
   title: "Syam Narendra - Backend Systems Engineer",
   description:
-    "Syam Narendra -   Backend Systems Engineer from India building Scalable and Reliable Systems",
+    "Syam Narendra -   Backend Systems Engineer building Scalable and Reliable Systems",
 };
 export const socialLinks = [
   { label: "GitHub", href: "https://github.com/syam-narendra", icon: "github" },
-  { label: "X", href: "https://x.com/MrAdbhutam", icon: "twitter" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/syamnarendra/", icon: "linkedin" },
   { label: "Mail", href: "mailto:syam35@protonmail.com", icon: "mail" },
 ];
@@ -49,7 +48,7 @@ export const experience = [
     role: "AI Backend Engineer",
     type: "Full-time",
     period: ["Mar 2026", "Present"] as [string, string],
-    skills: ["C#", "ASP.NET Core", "YARP", "SQL Server", "JavaScript", "Playwright"],
+    skills: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "PyTorch", "PySpark", "Recommendation Systems", "Apache Flink", "FAISS/LanceDB"],
   },
   {
     company: "itD Tech",
@@ -58,7 +57,7 @@ export const experience = [
     role: "Full Stack Developer",
     type: "Full-time",
     period: ["Nov 2023", "Feb 2026"] as [string, string],
-    skills: ["Python", "FastMCP", "Docker", "ngrok", "OpenAI"],
+    skills: ["Python", "Docker", "ngrok", "Node.js", "Kafka", "Vercel AI SDk", "Redis", "PostgresQL", "TypeScript", "WebSockets", "Prometheus", "Locust/K6"],
   },
   {
     company: "ThoughtWorks",
@@ -67,7 +66,7 @@ export const experience = [
     role: "Backend Developer Intern",
     type: "Internship",
     period: ["May 2019", "Jun 2019"] as [string, string],
-    skills: ["Python", "FastMCP", "Docker", "ngrok", "OpenAI"],
+    skills: ["Python", "Express.js", "JavaScript"],
   },
 ];
 
@@ -239,50 +238,6 @@ export const blogs: BlogPost[] = [
     coverUrl:
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=300&fit=crop",
   },
-  {
-    title: "Why I Switched from REST to MCP for AI Tools",
-    excerpt:
-      "The Model Context Protocol changed how I think about AI tool integrations. Here's why MCP is a better fit than REST for LLM-powered applications.",
-    date: "2026-03-22",
-    readTime: "6 min read",
-    tags: ["AI", "MCP", "Python"],
-    slug: "rest-to-mcp-ai-tools",
-    coverUrl:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop",
-  },
-  {
-    title: "Docker Compose for Local Development: A Practical Guide",
-    excerpt:
-      "Stop fighting with local environment setup. Here's my battle-tested Docker Compose configuration for full-stack development with hot reload.",
-    date: "2026-03-05",
-    readTime: "10 min read",
-    tags: ["Docker", "DevOps", "DX"],
-    slug: "docker-compose-local-dev",
-    coverUrl:
-      "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=600&h=300&fit=crop",
-  },
-  {
-    title: "Lessons from Building My First Production API",
-    excerpt:
-      "What I learned about error handling, logging, rate limiting, and database migrations the hard way — by shipping to real users.",
-    date: "2026-02-14",
-    readTime: "7 min read",
-    tags: ["Backend", "API", "Lessons"],
-    slug: "first-production-api-lessons",
-    coverUrl:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=300&fit=crop",
-  },
-  {
-    title: "Understanding Event-Driven Architecture",
-    excerpt:
-      "A deep dive into event sourcing, CQRS, and message queues. When to use them, when to avoid them, and how they changed our system design.",
-    date: "2026-01-28",
-    readTime: "12 min read",
-    tags: ["Architecture", "Events", "System Design"],
-    slug: "event-driven-architecture",
-    coverUrl:
-      "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=300&fit=crop",
-  },
 ];
 
 export const blogsMeta = {
@@ -309,7 +264,7 @@ export const quote = {
 
 // ── Footer ───────────────────────────────────────────────────────────
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} should not`,
+  copyright: `© ${new Date().getFullYear()} Syam Narendra`,
   tagline: "Low-level thinking. High-level impact. Let's get Rusty.",
   emoji: "🐰",
 };
