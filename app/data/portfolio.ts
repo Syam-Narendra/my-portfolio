@@ -1,5 +1,5 @@
 export const profile = {
-  name: "dsSyam Kumatsdkvsdvkkkjj d testsjk",
+  name: "dsSyam Kumatsdkvsdvkkkjj d testsjksdnmv",
   avatarUrl: "https://avatars.githubusercontent.com/u/124170193",
   tagline: "24 • Backend Systems Engineer",
   statusChecking: "Checking activity...sdjkv",
@@ -336,7 +336,7 @@ export const quote = {
 
 // ── Footer ───────────────────────────────────────────────────────────
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} dsSyam Kumatsdkvsdvkkkjj d testsjk`,
+  copyright: `© ${new Date().getFullYear()} dsSyam Kumatsdkvsdvkkkjj d testsjksdnmv`,
   tagline: "Low-level thinking. High-level impact. Let's get Rusty.",
   emoji: "🐰",
 };
