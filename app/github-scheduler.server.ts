@@ -1,11 +1,13 @@
-import { writeFile, rename, readFile, unlink } from "node:fs/promises";
-import path from "node:path";
 import { github } from "~/data/portfolio";
 import type { GitHubStats, ContribDay } from "~/components/GitHubGrid";
 
-const CACHE_PATH = path.join(process.cwd(), "github-cache.json");
-const TMP_PATH = CACHE_PATH + ".tmp";
+// ── In-memory cache (Vercel has a read-only filesystem) ──────────────
+// On serverless, this persists for the lifetime of the function instance.
+// Each cold start will fetch fresh data; warm invocations reuse the cache.
 const SIX_HOURS = 6 * 60 * 60 * 1000;
+
+let cachedData: GitHubStats | null = null;
+let cachedAt = 0;
 
 async function fetchGitHubData(): Promise<GitHubStats | null> {
   try {
@@ -39,50 +41,36 @@ async function fetchGitHubData(): Promise<GitHubStats | null> {
   }
 }
 
-// Atomic write: write to .tmp then rename so a crash mid-write never corrupts the cache.
 async function fetchAndCache(): Promise<void> {
   const data = await fetchGitHubData();
   if (data) {
-    await writeFile(TMP_PATH, JSON.stringify({ data, fetchedAt: Date.now() }), "utf-8");
-    await rename(TMP_PATH, CACHE_PATH);
-    console.log("[github] cache updated at", new Date().toISOString());
-  } else {
-    unlink(TMP_PATH).catch(() => {});
-  }
-}
-
-async function cacheAgeMs(): Promise<number> {
-  try {
-    const raw = await readFile(CACHE_PATH, "utf-8");
-    const { fetchedAt } = JSON.parse(raw) as { fetchedAt: number };
-    return Date.now() - fetchedAt;
-  } catch {
-    return Infinity;
+    cachedData = data;
+    cachedAt = Date.now();
+    console.log("[github] in-memory cache updated at", new Date().toISOString());
   }
 }
 
 export async function readGitHubCache(): Promise<GitHubStats | null> {
-  try {
-    const raw = await readFile(CACHE_PATH, "utf-8");
-    const { data } = JSON.parse(raw) as { data: GitHubStats };
-    return data ?? null;
-  } catch {
-    return null;
+  // If cache is fresh (< 6 hours old), return it
+  if (cachedData && Date.now() - cachedAt < SIX_HOURS) {
+    return cachedData;
   }
+
+  // Otherwise fetch fresh data
+  await fetchAndCache();
+  return cachedData;
 }
 
+// startGitHubScheduler is kept as a no-op for backward compatibility
+// (entry.server.tsx calls it). On serverless, setInterval doesn't persist
+// across invocations, so we fetch on-demand in readGitHubCache instead.
 let started = false;
 
 export function startGitHubScheduler(): void {
   if (started) return;
   started = true;
+  console.log("[github] scheduler initialized (on-demand fetching for serverless)");
 
-  // Refetch immediately only if cache is missing or stale (>6h old).
-  cacheAgeMs().then((age) => {
-    if (age >= SIX_HOURS) fetchAndCache().catch(console.error);
-  });
-
-  // .unref() lets Node exit cleanly without waiting for the next tick.
-  setInterval(() => fetchAndCache().catch(console.error), SIX_HOURS).unref();
-  console.log("[github] scheduler started — refreshing every 6 hours");
+  // Eagerly populate the cache on the first cold start
+  fetchAndCache().catch(console.error);
 }

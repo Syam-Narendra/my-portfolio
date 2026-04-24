@@ -6,7 +6,6 @@ import { requireAdmin, destroySessionCookie } from "./auth.server";
 import {
   readPortfolioData,
   generatePortfolioFile,
-  writePortfolioFile,
   commitToGitHub,
   buildCommitMessage,
   type PortfolioData,
@@ -50,19 +49,15 @@ export async function action({ request }: Route.ActionArgs) {
       const content = generatePortfolioFile(updated);
       const message = buildCommitMessage(original, updated);
 
-      console.log("[admin] Writing portfolio.ts locally...");
-      await writePortfolioFile(content);
-      console.log("[admin] ✓ Local write done");
-
       console.log("[admin] Pushing to GitHub...");
       const ghResult = await commitToGitHub(content, message);
       if (!ghResult.success) {
         console.warn("[admin] GitHub push failed:", ghResult.error);
-        return { success: true, warning: `Saved locally but GitHub commit failed: ${ghResult.error}` };
+        return { error: `GitHub commit failed: ${ghResult.error}` };
       }
 
-      console.log("[admin] ✓ All done. Commit:", ghResult.commitUrl);
-      return { success: true, message: `Saved & committed: "${message}"`, commitUrl: ghResult.commitUrl };
+      console.log("[admin] ✓ Committed:", ghResult.commitUrl);
+      return { success: true, message: `Committed: "${message}" — changes will be live after Vercel redeploys (~30-60s)`, commitUrl: ghResult.commitUrl };
     } catch (err) {
       console.error("[admin] Save error:", err);
       return { error: `Save failed: ${String(err)}` };

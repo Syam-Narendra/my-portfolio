@@ -1,33 +1,12 @@
-import { readFileSync } from "node:fs";
 import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
-import path from "node:path";
 import { redirect } from "react-router";
 
 const COOKIE_NAME = "admin_session";
 
-// ── .env loader (Vite SSR doesn't auto-populate process.env) ────────
-function loadEnvSync(): Record<string, string> {
-  const vars: Record<string, string> = {};
-  try {
-    const content = readFileSync(path.join(process.cwd(), ".env"), "utf-8");
-    for (const line of content.split("\n")) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith("#")) continue;
-      const eqIdx = trimmed.indexOf("=");
-      if (eqIdx === -1) continue;
-      const key = trimmed.slice(0, eqIdx).trim();
-      let val = trimmed.slice(eqIdx + 1).trim();
-      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-        val = val.slice(1, -1);
-      }
-      vars[key] = val;
-    }
-  } catch { /* no .env file */ }
-  return vars;
-}
-
+// On Vercel, env vars are injected via the dashboard into process.env.
+// Locally with Vite, use --env-file or dotenv in vite.config.
 function getEnv(key: string): string | undefined {
-  return process.env[key] || loadEnvSync()[key];
+  return process.env[key];
 }
 
 // ── Session secret from .env (NOT hardcoded in source) ──────────────

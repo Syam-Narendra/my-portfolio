@@ -1,48 +1,10 @@
 // ── Admin Actions: Portfolio file generation & GitHub commit ─────────
-import { readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { Buffer } from "node:buffer";
 
-const PORTFOLIO_PATH = path.join(process.cwd(), "app", "data", "portfolio.ts");
-const ENV_PATH = path.join(process.cwd(), ".env");
-
-// ── Load .env file manually (Vite SSR doesn't populate process.env) ──
-let envLoaded = false;
-async function loadEnv(): Promise<Record<string, string>> {
-  const vars: Record<string, string> = {};
-  try {
-    const content = await readFile(ENV_PATH, "utf-8");
-    for (const line of content.split("\n")) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith("#")) continue;
-      const eqIdx = trimmed.indexOf("=");
-      if (eqIdx === -1) continue;
-      const key = trimmed.slice(0, eqIdx).trim();
-      let val = trimmed.slice(eqIdx + 1).trim();
-      // Strip surrounding quotes
-      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-        val = val.slice(1, -1);
-      }
-      vars[key] = val;
-      // Also set in process.env for other code
-      if (!process.env[key]) process.env[key] = val;
-    }
-    envLoaded = true;
-  } catch {
-    console.warn("[admin] Could not read .env file");
-  }
-  return vars;
-}
-
-async function getEnvVar(key: string): Promise<string | undefined> {
-  // Check process.env first
-  if (process.env[key]) return process.env[key];
-  // Load from .env file
-  if (!envLoaded) {
-    const vars = await loadEnv();
-    return vars[key];
-  }
-  return undefined;
+// On Vercel, env vars are injected via the dashboard into process.env.
+// Locally with Vite, use --env-file or dotenv in vite.config.
+function getEnvVar(key: string): string | undefined {
+  return process.env[key];
 }
 
 // ── Types ────────────────────────────────────────────────────────────
@@ -142,54 +104,25 @@ export interface PortfolioData {
 
 // ── Read current portfolio data ─────────────────────────────────────
 export async function readPortfolioData(): Promise<PortfolioData> {
-  // Dynamic import to get current values
-  const mod = await import(
-    /* @vite-ignore */
-    `file://${PORTFOLIO_PATH}?t=${Date.now()}`
-  ).catch(() => null);
-
-  if (mod) {
-    return {
-      profile: mod.profile,
-      nav: mod.nav,
-      meta: mod.meta,
-      socialLinks: mod.socialLinks,
-      github: mod.github,
-      experience: mod.experience,
-      education: mod.education,
-      booksCurrentlyReading: mod.booksCurrentlyReading,
-      booksRead: mod.booksRead,
-      booksMeta: mod.booksMeta,
-      projects: mod.projects,
-      projectsMeta: mod.projectsMeta,
-      blogs: mod.blogs,
-      blogsMeta: mod.blogsMeta,
-      about: mod.about,
-      quote: mod.quote,
-      footer: mod.footer,
-    };
-  }
-
-  // Fallback: import statically
-  const staticMod = await import("~/data/portfolio");
+  const mod = await import("~/data/portfolio");
   return {
-    profile: staticMod.profile,
-    nav: staticMod.nav,
-    meta: staticMod.meta,
-    socialLinks: staticMod.socialLinks,
-    github: staticMod.github,
-    experience: staticMod.experience,
-    education: staticMod.education,
-    booksCurrentlyReading: staticMod.booksCurrentlyReading,
-    booksRead: staticMod.booksRead,
-    booksMeta: staticMod.booksMeta,
-    projects: staticMod.projects,
-    projectsMeta: staticMod.projectsMeta,
-    blogs: staticMod.blogs,
-    blogsMeta: staticMod.blogsMeta,
-    about: staticMod.about,
-    quote: staticMod.quote,
-    footer: staticMod.footer,
+    profile: mod.profile,
+    nav: mod.nav,
+    meta: mod.meta,
+    socialLinks: mod.socialLinks,
+    github: mod.github,
+    experience: mod.experience,
+    education: mod.education,
+    booksCurrentlyReading: mod.booksCurrentlyReading,
+    booksRead: mod.booksRead,
+    booksMeta: mod.booksMeta,
+    projects: mod.projects,
+    projectsMeta: mod.projectsMeta,
+    blogs: mod.blogs,
+    blogsMeta: mod.blogsMeta,
+    about: mod.about,
+    quote: mod.quote,
+    footer: mod.footer,
   };
 }
 
@@ -445,19 +378,17 @@ export function generatePortfolioFile(data: PortfolioData): string {
   return lines.join("\n");
 }
 
-// ── Write portfolio.ts locally ───────────────────────────────────────
-export async function writePortfolioFile(content: string): Promise<void> {
-  await writeFile(PORTFOLIO_PATH, content, "utf-8");
-}
+// writePortfolioFile removed — Vercel has a read-only filesystem.
+// Admin saves commit directly to GitHub, which triggers a Vercel redeploy.
 
 // ── Commit to GitHub via Contents API ────────────────────────────────
 export async function commitToGitHub(
   content: string,
   message: string
 ): Promise<{ success: boolean; error?: string; commitUrl?: string }> {
-  const token = await getEnvVar("GITHUB_TOKEN");
-  const repo = await getEnvVar("GITHUB_REPO");
-  const branch = (await getEnvVar("GITHUB_BRANCH")) || "main";
+  const token = getEnvVar("GITHUB_TOKEN");
+  const repo = getEnvVar("GITHUB_REPO");
+  const branch = getEnvVar("GITHUB_BRANCH") || "main";
 
   console.log("[admin] GitHub commit attempt:", { hasToken: !!token, repo, branch });
 
