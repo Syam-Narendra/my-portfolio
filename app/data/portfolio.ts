@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Syam Narendra",
+  name: "Syam Narendra Gang",
   avatarUrl: "https://avatars.githubusercontent.com/u/124170193",
   tagline: "24 • Backend Systems Engineer",
   statusChecking: "Checking activity...",
@@ -264,7 +264,7 @@ export const quote = {
 
 // ── Footer ───────────────────────────────────────────────────────────
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} Syam Narendra`,
+  copyright: `© ${new Date().getFullYear()} Syam Narendra Gang`,
   tagline: "Low-level thinking. High-level impact. Let's get Rusty.",
   emoji: "🐰",
 };
